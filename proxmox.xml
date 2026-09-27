@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>proxmox_manager</Name>
+  <Repository>ghcr.io/muzzino-orig/proxmox:latest</Repository>
+  <Registry>https://ghcr.io/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/muzzino-orig/proxmox</Support>
+  <Project>https://github.com/muzzino-orig/proxmox</Project>
+  <Overview>Enterprise Proxmox VE Control Center &amp; Management Dashboard with Wake-on-LAN and real-time telemetry.</Overview>
+  <Category>Tools: System: Management:</Category>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/muzzino-orig/proxmox/main/public/icons/icon-192.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI Port" Target="3000" Default="3008" Mode="tcp" Description="Host web port mapped to container port 3000" Type="Port" Display="always" Required="true" Mask="false">3008</Config>
+  <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="postgresql://postgres:password@192.168.1.xxx:5432/" Mode="" Description="Base PostgreSQL connection URL pointing to the host PostgreSQL instance" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="PROJECT_DB_NAME" Target="PROJECT_DB_NAME" Default="proxmox_manager" Mode="" Description="Project-specific database name auto-provisioned at boot" Type="Variable" Display="always" Required="true" Mask="false">proxmox_manager</Config>
+  <Config Name="AUTH_SECRET" Target="AUTH_SECRET" Default="" Mode="" Description="JWT session secret key (minimum 32 characters)" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="COOKIE_SECURE" Target="COOKIE_SECURE" Default="false" Mode="" Description="Set to true if behind HTTPS reverse proxy, false for local HTTP" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="INIT_ADMIN_EMAIL" Target="INIT_ADMIN_EMAIL" Default="admin@homelab.local" Mode="" Description="Initial administrator email auto-seeded into DB" Type="Variable" Display="always" Required="true" Mask="false">admin@homelab.local</Config>
+  <Config Name="INIT_ADMIN_PASSWORD" Target="INIT_ADMIN_PASSWORD" Default="ChangeMeImmediately123!" Mode="" Description="Initial administrator password" Type="Variable" Display="always" Required="true" Mask="true">ChangeMeImmediately123!</Config>
+  <Config Name="STRICT_ENV_VALIDATION" Target="STRICT_ENV_VALIDATION" Default="false" Mode="" Description="Enforces strict fail-fast env validation at boot" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="PROXMOX_HOST" Target="PROXMOX_HOST" Default="192.168.1.xxx" Mode="" Description="IP address or hostname of the Proxmox VE server" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="PROXMOX_PORT" Target="PROXMOX_PORT" Default="8006" Mode="" Description="Proxmox VE API port (default: 8006)" Type="Variable" Display="always" Required="true" Mask="false">8006</Config>
+  <Config Name="PROXMOX_NODE" Target="PROXMOX_NODE" Default="pve" Mode="" Description="Proxmox VE target cluster node name" Type="Variable" Display="always" Required="true" Mask="false">pve</Config>
+  <Config Name="PROXMOX_USER" Target="PROXMOX_USER" Default="root@pam" Mode="" Description="Proxmox VE username or API Token ID (e.g., root@pam or user@pve!tokenid)" Type="Variable" Display="always" Required="true" Mask="false">root@pam</Config>
+  <Config Name="PROXMOX_PASSWORD" Target="PROXMOX_PASSWORD" Default="" Mode="" Description="Proxmox VE password or API Token Secret" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="PROXMOX_SSL_INSECURE" Target="PROXMOX_SSL_INSECURE" Default="true" Mode="" Description="Allow connection to self-signed TLS certificates on Proxmox" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="PROXMOX_MAC_ADDRESS" Target="PROXMOX_MAC_ADDRESS" Default="" Mode="" Description="Hardware MAC address of the Proxmox motherboard network interface for Wake-on-LAN" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="PROXMOX_WOL_BROADCAST" Target="PROXMOX_WOL_BROADCAST" Default="192.168.1.255" Mode="" Description="Broadcast IP address for Wake-on-LAN Magic Packets" Type="Variable" Display="always" Required="false" Mask="false">192.168.1.255</Config>
+</Container>
