@@ -70,6 +70,11 @@
       <Mode/>
     </Variable>
     <Variable>
+      <Value>http://192.168.1.100:8123/api/states/cover.portone</Value>
+      <Name>HA_STATUS_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
       <Value>3000</Value>
       <Name>PORT</Name>
       <Mode/>
@@ -89,6 +94,7 @@
   <Config Name="INIT_ADMIN_EMAIL" Target="INIT_ADMIN_EMAIL" Default="admin@portone.local" Mode="" Description="Initial Administrator email for Zero-Touch Provisioning" Type="Variable" Display="always" Required="true" Mask="false">admin@portone.local</Config>
   <Config Name="INIT_ADMIN_PASSWORD" Target="INIT_ADMIN_PASSWORD" Default="" Mode="" Description="Initial Administrator password" Type="Variable" Display="always" Required="true" Mask="true"/>
   <Config Name="HA_WEBHOOK_URL" Target="HA_WEBHOOK_URL" Default="" Mode="" Description="Home Assistant webhook URL triggered to release the door latch" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="HA_STATUS_URL" Target="HA_STATUS_URL" Default="" Mode="" Description="Home Assistant entity status endpoint for door status check" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="PORT" Target="PORT" Default="3000" Mode="" Description="Internal container listening port" Type="Variable" Display="advanced" Required="false" Mask="false">3000</Config>
   <Config Name="COOKIE_SECURE" Target="COOKIE_SECURE" Default="false" Mode="" Description="Enforce HTTPS-only secure cookies (true for HTTPS reverse proxy, false for LAN HTTP)" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
 </Container>
